@@ -18,7 +18,7 @@
         <div class="w-full">
             <h2 class="text-xl font-medium text-gray-800 mb-4 text-center">Iniciar Sesión</h2>
             <form id="loginForm" class="space-y-4">
-                <input type="text" name="dni" placeholder="DNI" required
+                <input type="text" name="dniLegajo" placeholder="DNI o Legajo" required
                     class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:border-blue-500">
                 <input type="password" name="password" placeholder="Contraseña" required
                     class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:border-blue-500">
@@ -31,7 +31,7 @@
 
     <script>
         const DNI_PACIENTE = "43022672"
-        const DNI_COORDINADOR = "99999999"
+        const LEGAJO_COORDINADOR = "99999999"
         const CONTRASENIA = "123456789";
 
         // Selecciona el formulario y el mensaje de error
@@ -43,12 +43,12 @@
 
             // Valores ingresados en formulario
             const password = form.password.value;
-            const dni = form.dni.value;
+            const dniLegajo = form.dniLegajo.value;
 
             // Verificacion DNI y Contraseña, y redirección segun perfil
-            if (dni === DNI_PACIENTE && password === CONTRASENIA) {
+            if (dniLegajo === DNI_PACIENTE && password === CONTRASENIA) {
                 window.location.href = "index-paciente.html";
-            } else if (dni === DNI_COORDINADOR && password === CONTRASENIA) {
+            } else if (dniLegajo === LEGAJO_COORDINADOR && password === CONTRASENIA) {
                 window.location.href = "index-coordinador.html";
             } else {
                 // Mostrar mensaje de error en caso de no coincidir contraseña y dni
