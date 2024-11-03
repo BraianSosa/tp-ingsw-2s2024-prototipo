@@ -3,21 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sistema de encuestas</title>
+    <title>Sistema de encuestas - Mapa de Centros</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
     <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
     <style>
         #map {
-            height: 400px;
+            height: 500px;
             width: 100%;
+        }
+        .sidebar {
+            height: 500px;
+            overflow-y: auto;
         }
     </style>
 </head>
 <body>
     <!-- Navbar -->
     <div class="flex justify-between items-center gap-2 bg-cyan-700">
-        <!-- Imagen al centro -->
         <img src="https://www.ungs.edu.ar/wp-content/themes/ungs/images/logo-ungs-header.svg" alt="Logo"
             class="w-30 h-16 p-2">
 
@@ -37,54 +40,80 @@
         </div>
     </div>
 
-    <!-- Resultados de encuestas -->
-    <div class="grid justify-center">
-        <div class="p-4 flex justify-center">
-            <h1 class="text-3xl">Mis centros</h1>
-        </div>
-        <p>Usted está asignado a <strong>Zona Sur</strong></p>
-        <div class="p-4"></div>
-        <table class="border rounded-md">
-            <thead class="bg-cyan-700 text-white text-center">
-                <tr>
-                    <th>Centro</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr><td>Centro Lanús</td></tr>
-                <tr><td>Centro Quilmes</td></tr>
-                <tr><td>Centro Avellaneda</td></tr>
-            </tbody>
-        </table>
+    <div class="grid justify-center p-4">
+        <h1 class="text-3xl text-center mb-4">Centros de Salud en el Mapa</h1>
+        <div class="grid grid-cols-2 gap-4">
+            <!-- Mapa -->
+            <div id="map" class="flex-1 shadow-lg"></div>
 
-        <!-- Contenedor del mapa -->
-        <div class="p-4">
-            <h2 class="text-2xl text-center">Mapa de Centros - Zona Sur</h2>
-            <div id="map"></div>
+            <!-- Tabla de centros -->
+            <div class="sidebar w-full bg-gray-100 shadow-lg">
+                <table class="w-full text-left border-collapse">
+                    <thead class="sticky top-0 bg-cyan-700 text-white">
+                        <tr>
+                            <th class="border-b p-2">Nombre</th>
+                            <th class="border-b p-2">Dirección</th>
+                            <th class="border-b p-2">Zona</th>
+                        </tr>
+                    </thead>
+                    <tbody id="centros-table-body">
+                        <!-- Filas generadas automaticamente por Objeto de centros pro zona -->
+                    </tbody>
+                </table>
+            </div>
         </div>
     </div>
 
     <script>
-        // Inicializar el mapa en una ubicación central para la Zona Sur
-        const map = L.map('map').setView([-34.707, -58.385], 11);
+        // Inicializar el mapa
+        const map = L.map('map').setView([-34.6037, -58.3816], 11);
 
-        // Añadir una capa de mapa de OpenStreetMap
+        // Añadir capa de mapa de OpenStreetMap
         L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
             attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
         }).addTo(map);
 
-        // Definir las ubicaciones de los centros
-        const centros = [
-            { name: "Centro Lanús", coords: [-34.705, -58.278] },
-            { name: "Centro Quilmes", coords: [-34.724, -58.252] },
-            { name: "Centro Avellaneda", coords: [-34.663, -58.365] }
-        ];
+        // Definir las ubicaciones de los centros por zona
+        const centrosPorZona = {
+            sur: [
+                { name: "Centro Lanús", coords: [-34.705, -58.278], direccion: "Av. Hipólito Yrigoyen 2900" },
+                { name: "Centro Quilmes", coords: [-34.724, -58.252], direccion: "Calle Mitre 230" },
+                { name: "Centro Avellaneda", coords: [-34.663, -58.365], direccion: "Av. Belgrano 1800" }
+            ],
+            norte: [
+                { name: "Centro San Fernando", coords: [-34.455, -58.548], direccion: "Calle Libertador 1020" },
+                { name: "Centro Tigre", coords: [-34.426, -58.579], direccion: "Av. Italia 750" },
+                { name: "Centro Pilar", coords: [-34.458, -58.914], direccion: "Ruta 8 Km 52" }
+            ],
+            oeste: [
+                { name: "Centro Morón", coords: [-34.654, -58.619], direccion: "Calle Brown 450" },
+                { name: "Centro San Justo", coords: [-34.681, -58.562], direccion: "Calle Almafuerte 820" },
+                { name: "Centro Merlo", coords: [-34.668, -58.729], direccion: "Av. Real 1500" }
+            ],
+            caba: [
+                { name: "Centro Palermo", coords: [-34.583, -58.421], direccion: "Av. Santa Fe 3400" },
+                { name: "Centro Recoleta", coords: [-34.588, -58.396], direccion: "Calle Junín 120" },
+                { name: "Centro Belgrano", coords: [-34.563, -58.446], direccion: "Av. Cabildo 1200" }
+            ]
+        };
 
-        // Añadir marcadores para cada centro
-        centros.forEach(centro => {
-            L.marker(centro.coords).addTo(map)
-                .bindPopup(`<b>${centro.name}</b>`)
-                .openPopup();
+        const bodyTabla = document.getElementById("centros-table-body");
+
+        Object.keys(centrosPorZona).forEach(zona => {
+            centrosPorZona[zona].forEach(centro => {
+                // Agregar marcador en el mapa
+                L.marker(centro.coords).addTo(map)
+                    .bindPopup(`<b>${centro.name}</b><br>Dirección: ${centro.direccion}<br>Zona: ${zona.toUpperCase()}`);
+
+                // Crear una fila en la tabla
+                const filaTabla = document.createElement("tr");
+                filaTabla.innerHTML = `
+                    <td class="border-b p-2">${centro.name}</td>
+                    <td class="border-b p-2">${centro.direccion}</td>
+                    <td class="border-b p-2">${zona.toUpperCase()}</td>
+                `;
+                bodyTabla.appendChild(filaTabla);
+            });
         });
     </script>
 </body>
