@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Sistema de encuestas</title>
+        <script src="https://cdn.tailwindcss.com"></script>
+    </head>
+    <body>
+        <!-- Navbar -->
+        <div class="flex justify-between items-center gap-2 bg-cyan-700">
+            <!-- Imagen al centro -->
+            <img src="https://www.ungs.edu.ar/wp-content/themes/ungs/images/logo-ungs-header.svg" alt="Logo"
+                class="w-30 h-16 p-2">
+
+            <div class="flex gap-2 p-2">
+                <div class="rounded-full p-2 border border-2 border-white flex justify-center">
+                    <a href="mapa-centros.html" class="font-medium text-white">Mapa centros</a>
+                </div>
+                <div class="rounded-full p-2 border border-2 border-white flex justify-center">
+                    <a href="mis-centros-coordinador.html" class="font-medium text-white">Mis centros</a>
+                </div>
+                <div class="rounded-full p-2 border border-2 border-white flex justify-center">
+                    <a href="reporte-encuestas.html" class="font-medium text-white">Reporte encuestas</a>
+                </div>
+                <div class="rounded-full p-2 border border-2 border-white flex justify-center">
+                    <a href="login.html" class="font-medium text-white">Cerrar sesión</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Resultados de encuestas -->
+        <div class="grid justify-center">
+            <div class="p-4 flex justify-center">
+                <h1 class="text-3xl">Mis centros</h1>
+            </div>
+            <p>Usted está asignado a <strong>Zona Sur</strong> </p>
+            <div class="p-4"></div>
+            <table class="border rounded-md">
+                <thead class="bg-cyan-700 text-white text-center">
+                    <tr>
+                        <th>Centro</th>
+                        <th>Ubicación</th>
+                    </tr>
+                </thead>
+                <tbody >
+                    <tr>
+                        <td>Centro Lanús</td>
+                        <td>Calle Falsa 123</td>
+                    </tr>
+                    <tr>
+                        <td>Centro Quilmes</td>
+                        <td>Calle Falsa 123</td>
+                    </tr>
+                    <tr>
+                        <td>Centro Avellaneda</td>
+                        <td>Calle Falsa 123</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </body>
+</html>

@@ -1,13 +1,19 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sistema de encuestas</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+    <style>
+        #map {
+            height: 400px;
+            width: 100%;
+        }
+    </style>
 </head>
-
 <body>
     <!-- Navbar -->
     <div class="flex justify-between items-center gap-2 bg-cyan-700">
@@ -17,17 +23,69 @@
 
         <div class="flex gap-2 p-2">
             <div class="rounded-full p-2 border border-2 border-white flex justify-center">
-                <a href="mapa-centros.html" class="font-medium text-white">Centros por zonas</a>
+                <a href="mapa-centros.html" class="font-medium text-white">Mapa centros</a>
             </div>
             <div class="rounded-full p-2 border border-2 border-white flex justify-center">
-                <a href="completar-encuesta.html" class="font-medium text-white">Encuestas</a>
+                <a href="mis-centros-coordinador.html" class="font-medium text-white">Mis centros</a>
+            </div>
+            <div class="rounded-full p-2 border border-2 border-white flex justify-center">
+                <a href="reporte-encuestas.html" class="font-medium text-white">Reporte encuestas</a>
+            </div>
+            <div class="rounded-full p-2 border border-2 border-white flex justify-center">
+                <a href="login.html" class="font-medium text-white">Cerrar sesión</a>
             </div>
         </div>
     </div>
-    <div class="p-4 flex justify-center">
-        <h1 class="text-3xl">Centros</h2>
+
+    <!-- Resultados de encuestas -->
+    <div class="grid justify-center">
+        <div class="p-4 flex justify-center">
+            <h1 class="text-3xl">Mis centros</h1>
+        </div>
+        <p>Usted está asignado a <strong>Zona Sur</strong></p>
+        <div class="p-4"></div>
+        <table class="border rounded-md">
+            <thead class="bg-cyan-700 text-white text-center">
+                <tr>
+                    <th>Centro</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td>Centro Lanús</td></tr>
+                <tr><td>Centro Quilmes</td></tr>
+                <tr><td>Centro Avellaneda</td></tr>
+            </tbody>
+        </table>
+
+        <!-- Contenedor del mapa -->
+        <div class="p-4">
+            <h2 class="text-2xl text-center">Mapa de Centros - Zona Sur</h2>
+            <div id="map"></div>
+        </div>
     </div>
 
-</body>
+    <script>
+        // Inicializar el mapa en una ubicación central para la Zona Sur
+        const map = L.map('map').setView([-34.707, -58.385], 11);
 
+        // Añadir una capa de mapa de OpenStreetMap
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+        }).addTo(map);
+
+        // Definir las ubicaciones de los centros
+        const centros = [
+            { name: "Centro Lanús", coords: [-34.705, -58.278] },
+            { name: "Centro Quilmes", coords: [-34.724, -58.252] },
+            { name: "Centro Avellaneda", coords: [-34.663, -58.365] }
+        ];
+
+        // Añadir marcadores para cada centro
+        centros.forEach(centro => {
+            L.marker(centro.coords).addTo(map)
+                .bindPopup(`<b>${centro.name}</b>`)
+                .openPopup();
+        });
+    </script>
+</body>
 </html>
