@@ -4,8 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sistema de encuestas</title>
+    <title>Sistema de Encuestas</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <script src="js/completar-encuesta.js" defer></script> <!-- Corrección: etiqueta cerrada correctamente -->
 </head>
 
 <body>
@@ -27,57 +28,109 @@
             </div>
         </div>
     </div>
-    
+
     <div class="flex justify-center">
-        <div class="p-4 justify-center">
-            <h1 class="text-3xl mb-4">Califica tu atención</h1>
+        <div class="p-4 grid justify-center">
+            <div id="titulos">
+                <h1 id="titulo-form" class="text-3xl mb-4">Califica tu atención (del 1 al 10) </h1>
+            <h1 id="titulo-agradecimiento-encuesta" class="text-3xl mb-4" hidden>¡Gracias por completar la encuesta!
+            </h1>
+            <h2 id="subtitulo-agradecimiento-encuesta" class="text-3xl mb-4" hidden>Estas son tus respuestas</h2>
+
+            </div>
             
             <!-- Formulario -->
-            <form action="encuesta-enviada.html" method="GET">
-                <div class="grid grid-cols-2 gap-2">
-                    <label>Pregunta 1 (califica del 1 al 10)</label>
-                    <input type="number" name="pregunta1" class="border rounded-md w-16" />
+            <form id="form-encuesta">
+                <div class="grid grid-cols-3 gap-2 justify-end">
+                    <label class="col-span-2">
+                        <strong>
+                            1. ¿Qué tan satisfecho estás con la rapidez del proceso de atención?
+                        </strong>
+                    </label>
+                    <input id="pregunta-1" type="number" name="pregunta1" class="border text-center rounded-md w-16" />
 
-                    <label>Pregunta 2 (califica del 1 al 10)</label>
-                    <input type="number" name="pregunta2" class="border rounded-md w-16" />
+                    <label class="col-span-2">
+                        <strong>
+                            2. ¿Qué tan clara fue la información proporcionada por el personal del centro de salud?
+                        </strong>
+                    </label>
+                    <input id="pregunta-2" type="number" name="pregunta2" class="border text-center rounded-md w-16" />
 
-                    <label>Pregunta 3 (califica del 1 al 10)</label>
-                    <input type="number" name="pregunta3" class="border rounded-md w-16" />
+                    <label class="col-span-2">
+                        <strong>
+                            3. ¿Qué tan amable fue el personal que te atendió durante tu visita?
+                        </strong>
+                    </label>
+                    <input id="pregunta-3" type="number" name="pregunta3" class="border text-center rounded-md w-16" />
 
-                    <label>Pregunta 4 (califica del 1 al 10)</label>
-                    <input type="number" name="pregunta4" class="border rounded-md w-16" />
+                    <label class="col-span-2">
+                        <strong>
+                            4. ¿Qué tan cómodo te sentiste en las instalaciones del centro de
+                            salud?
+                        </strong>
+                    </label>
+                    <input id="pregunta-4" type="number" name="pregunta4" class="border text-center rounded-md w-16" />
 
-                    <label>Pregunta 5 (califica del 1 al 10)</label>
-                    <input type="number" name="pregunta5" class="border rounded-md w-16" />
+                    <label class="col-span-2">
+                        <strong>
+                            5. ¿Qué tan satisfecho estás con los tiempos de espera en el centro de
+                            salud?
+                        </strong>
+                    </label>
+                    <input id="pregunta-5" type="number" name="pregunta5" class="border text-center rounded-md w-16" />
 
-                    <label>Pregunta 6 (califica del 1 al 10)</label>
-                    <input type="number" name="pregunta6" class="border rounded-md w-16" />
+                    <label class="col-span-2">
+                        <strong>
+                            6. ¿Qué tan satisfecho estás con la limpieza y el orden de las instalaciones del centro
+                            de salud?
+                        </strong>
+                    </label>
+                    <input id="pregunta-6" type="number" name="pregunta6" class="border text-center rounded-md w-16" />
 
-                    <label>Pregunta 7 (califica del 1 al 10)</label>
-                    <input type="number" name="pregunta7" class="border rounded-md w-16" />
+                    <label class="col-span-2">
+                        <strong>
+                            7. ¿Qué tan probable es que recomiendes este centro de salud a familiares o
+                            amigos?
+                        </strong>
+                    </label>
+                    <input id="pregunta-7" type="number" name="pregunta7" class="border text-center rounded-md w-16" />
 
-                    <label>Pregunta 8 (califica del 1 al 10)</label>
-                    <input type="number" name="pregunta8" class="border rounded-md w-16" />
+                    <label class="col-span-2">
+                        <strong>
+                            8. ¿Qué tan accesible consideras la ubicación del centro de salud?
+                        </strong>
+                    </label>
+                    <input id="pregunta-8" type="number" name="pregunta8" class="border text-center rounded-md w-16" />
 
-                    <label>Pregunta 9 (califica del 1 al 10)</label>
-                    <input type="number" name="pregunta9" class="border rounded-md w-16" />
+                    <label class="col-span-2">
+                        <strong>
+                            9. ¿Qué tan efectivo consideras que fue el tratamiento o servicio
+                            proporcionado?
+                        </strong>
+                    </label>
+                    <input id="pregunta-9" type="number" name="pregunta9" class="border text-center rounded-md w-16" />
 
-                    <label>Pregunta 10 (califica del 1 al 10)</label>
-                    <input type="number" name="pregunta10" class="border rounded-md w-16" />
+                    <label class="col-span-2">
+                        <strong>
+                            10. ¿Qué tan satisfecho estás con el servicio en general brindado por el centro de
+                            salud?
+                        </strong>
+                    </label>
+                    <input id="pregunta-10" type="number" name="pregunta10" class="border text-center rounded-md w-16" />
                 </div>
-                
+
                 <div class="grid grid-rows-2">
                     <label class="mt-2">Comentarios (opcional)</label>
-                    <textarea name="comentarios" class="border rounded-md"></textarea>
+                    <textarea id="comentario" name="comentarios" class="border rounded-md"></textarea>
                 </div>
-                
+
                 <div class="mt-3">
-                    <button type="submit" class="rounded-md bg-cyan-700 text-white font-medium p-3">Enviar</button>
+                    <button id="boton-submit-form" type="submit"
+                        class="rounded-md bg-cyan-700 text-white font-medium p-3">Enviar</button>
                 </div>
             </form>
         </div>
     </div>
-
 </body>
 
 </html>
