@@ -32,7 +32,7 @@
     <div class="flex justify-center">
         <div class="p-4 grid justify-center">
             <div id="titulos">
-                <h1 id="titulo-form" class="text-3xl mb-4">Califica tu atención (del 1 al 10) </h1>
+                <h1 id="titulo-form" class="text-3xl mb-4">Califica tu atención</h1>
             <h1 id="titulo-agradecimiento-encuesta" class="text-3xl mb-4" hidden>¡Gracias por completar la encuesta!
             </h1>
             <h2 id="subtitulo-agradecimiento-encuesta" class="text-3xl mb-4" hidden>Estas son tus respuestas</h2>
@@ -44,79 +44,73 @@
                 <div class="grid grid-cols-3 gap-2 justify-end">
                     <label class="col-span-2">
                         <strong>
-                            1. ¿Qué tan satisfecho estás con la rapidez del proceso de atención?
+                            1. Evalúa con un puntaje del 1 al 10: ¿Qué tan organizado consideras que está el proceso de registro y atención?
                         </strong>
                     </label>
-                    <input id="pregunta-1" type="number" name="pregunta1" class="border text-center rounded-md w-16" />
-
+                    <input id="pregunta-1" type="number" name="pregunta1" class="border text-center rounded-md w-16" min="1" max="10" />
+                    
                     <label class="col-span-2">
                         <strong>
-                            2. ¿Qué tan clara fue la información proporcionada por el personal del centro de salud?
+                            2. Evalúa con un puntaje del 1 al 10: ¿Qué tan eficiente consideras la asignación de turnos?
                         </strong>
                     </label>
-                    <input id="pregunta-2" type="number" name="pregunta2" class="border text-center rounded-md w-16" />
-
+                    <input id="pregunta-2" type="number" name="pregunta2" class="border text-center rounded-md w-16" min="1" max="10" />
+                    
                     <label class="col-span-2">
                         <strong>
-                            3. ¿Qué tan amable fue el personal que te atendió durante tu visita?
+                            3. Evalúa con un puntaje del 1 al 10: ¿Qué tan bien estructurados están los procedimientos dentro del centro de salud?
                         </strong>
                     </label>
-                    <input id="pregunta-3" type="number" name="pregunta3" class="border text-center rounded-md w-16" />
-
+                    <input id="pregunta-3" type="number" name="pregunta3" class="border text-center rounded-md w-16" min="1" max="10" />
+                    
                     <label class="col-span-2">
                         <strong>
-                            4. ¿Qué tan cómodo te sentiste en las instalaciones del centro de
-                            salud?
+                            4. Evalúa con un puntaje del 1 al 10: ¿Qué tan adecuado fue el tiempo que esperaste para ser atendido?
                         </strong>
                     </label>
-                    <input id="pregunta-4" type="number" name="pregunta4" class="border text-center rounded-md w-16" />
-
+                    <input id="pregunta-4" type="number" name="pregunta4" class="border text-center rounded-md w-16" min="1" max="10" />
+                    
                     <label class="col-span-2">
                         <strong>
-                            5. ¿Qué tan satisfecho estás con los tiempos de espera en el centro de
-                            salud?
+                            5. Evalúa con un puntaje del 1 al 10: ¿Qué tan rápido fue el proceso de atención desde tu llegada al centro?
                         </strong>
                     </label>
-                    <input id="pregunta-5" type="number" name="pregunta5" class="border text-center rounded-md w-16" />
-
+                    <input id="pregunta-5" type="number" name="pregunta5" class="border text-center rounded-md w-16" min="1" max="10" />
+                    
                     <label class="col-span-2">
                         <strong>
-                            6. ¿Qué tan satisfecho estás con la limpieza y el orden de las instalaciones del centro
-                            de salud?
+                            6. Evalúa con un puntaje del 1 al 10: ¿Qué tan claro fue el sistema de información sobre los pasos a seguir durante tu visita?
                         </strong>
                     </label>
-                    <input id="pregunta-6" type="number" name="pregunta6" class="border text-center rounded-md w-16" />
-
+                    <input id="pregunta-6" type="number" name="pregunta6" class="border text-center rounded-md w-16" min="1" max="10" />
+                    
                     <label class="col-span-2">
                         <strong>
-                            7. ¿Qué tan probable es que recomiendes este centro de salud a familiares o
-                            amigos?
+                            7. Evalúa con un puntaje del 1 al 10: ¿Qué tan bien organizados estaban las personas y materiales durante tu atención?
                         </strong>
                     </label>
-                    <input id="pregunta-7" type="number" name="pregunta7" class="border text-center rounded-md w-16" />
-
+                    <input id="pregunta-7" type="number" name="pregunta7" class="border text-center rounded-md w-16" min="1" max="10" />
+                    
                     <label class="col-span-2">
                         <strong>
-                            8. ¿Qué tan accesible consideras la ubicación del centro de salud?
+                            8. Evalúa con un puntaje del 1 al 10: ¿Qué tan accesible y funcional fue la distribución de las áreas dentro del centro?
                         </strong>
                     </label>
-                    <input id="pregunta-8" type="number" name="pregunta8" class="border text-center rounded-md w-16" />
-
+                    <input id="pregunta-8" type="number" name="pregunta8" class="border text-center rounded-md w-16" min="1" max="10" />
+                    
                     <label class="col-span-2">
                         <strong>
-                            9. ¿Qué tan efectivo consideras que fue el tratamiento o servicio
-                            proporcionado?
+                            9. Evalúa con un puntaje del 1 al 10: ¿Qué tan satisfecho estás con la organización general del centro de salud?
                         </strong>
                     </label>
-                    <input id="pregunta-9" type="number" name="pregunta9" class="border text-center rounded-md w-16" />
-
+                    <input id="pregunta-9" type="number" name="pregunta9" class="border text-center rounded-md w-16" min="1" max="10" />
+                    
                     <label class="col-span-2">
                         <strong>
-                            10. ¿Qué tan satisfecho estás con el servicio en general brindado por el centro de
-                            salud?
+                            10. Evalúa con un puntaje del 1 al 10: ¿Qué tan satisfecho estás con los tiempos de atención en cada etapa del proceso?
                         </strong>
                     </label>
-                    <input id="pregunta-10" type="number" name="pregunta10" class="border text-center rounded-md w-16" />
+                    <input id="pregunta-10" type="number" name="pregunta10" class="border text-center rounded-md w-16" min="1" max="10" />                             
                 </div>
 
                 <div class="grid grid-rows-2">
