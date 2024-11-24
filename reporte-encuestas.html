@@ -5,14 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sistema de encuestas</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <script src="js/reporte-encuestas.js"></script>
+    <script src="js/reporte-encuestas.js" defer></script>
 </head>
 <body>
     <!-- Navbar -->
     <div class="flex justify-between items-center gap-2 bg-cyan-700">
         <!-- Imagen al centro -->
-        <img src="images/logo-ungs-header.svg" alt="Logo"
-            class="w-30 h-16 p-2">
+        <img src="images/logo-ungs-header.svg" alt="Logo" class="w-30 h-16 p-2">
 
         <div class="flex gap-2 p-2">
             <div class="rounded-full p-2 border border-2 border-white flex justify-center">
@@ -33,41 +32,65 @@
     <!-- Resultados de encuestas -->
     <div class="grid justify-center">
         <div class="p-4 flex justify-center">
-            <h1 class="text-3xl">Resultados encuesta</h1>
+            <h1 class="text-3xl">Reporte de encuestas</h1>
         </div>
-        <div class="grid grid-cols-2 gap-4">
+        <div class="flex justify-center gap-4">
             <div class="grid justify-center">
                 <label class="font-medium">Seleccione una zona</label>
-                <select id="zonaSelect" class="border rounded-md" onchange="actualizarCentros()">
-                    <option disabled selected>Seleccione</option>
-                    <option value="sur">Zona Sur</option>
-                    <option value="norte">Zona Norte</option>
-                    <option value="oeste">Zona Oeste</option>
-                    <option value="caba">CABA</option>
-                </select>
+                <select id="select-zona" class="border rounded-md" disabled></select>
             </div>
 
             <div class="grid justify-center">
                 <label class="font-medium">Seleccione un centro</label>
-                <select id="centroSelect" class="border rounded-md" onchange="generarPuntaje()" disabled>
-                    <option disabled selected>Seleccione</option>
-                </select>
+                <select id="select-centro" class="border rounded-md" disabled></select>
             </div>
         </div>
 
-        <div class="p-4"></div>
+        <div class="grid grid-cols-4 gap-4 p-4">
+        
+        <div class="grid col-span-3">
+            <table class=" border rounded-md text-center">
+                <thead class="bg-cyan-700 text-white">
+                    <tr>
+                        <th></th>
+                        <th></th>
+                        <th></th>
+                        <th></th>
+                        <th></th>
+                        <th></th>
+                        <th>Puntajes</th>
+                        <th></th>
+                        <th></th>
+                        <th></th>
+                        <th></th>
+                        <th></th>
+                    </tr>
+                    <tr>
+                        <th>ID Encuesta Respondida</th>
+                        <th>Comentario</th>
+                        <th>Pregunta 1</th>
+                        <th>Pregunta 2</th>
+                        <th>Pregunta 3</th>
+                        <th>Pregunta 4</th>
+                        <th>Pregunta 5</th>
+                        <th>Pregunta 6</th>
+                        <th>Pregunta 7</th>
+                        <th>Pregunta 8</th>
+                        <th>Pregunta 9</th>
+                        <th>Pregunta 10</th>
+                    </tr>
+                </thead>
+                <tbody id="resultadosTabla">
+                    <!-- Filas generadas según la selección -->
+                </tbody>
+            </table>
+        </div>
+        
 
-        <table class="border rounded-md text-center">
-            <thead class="bg-cyan-700 text-white">
-                <tr>
-                    <th>Centro</th>
-                    <th>Promedio puntajes</th>
-                </tr>
-            </thead>
-            <tbody id="resultadosTabla">
-                <!-- Filas generadas según la selección -->
-            </tbody>
-        </table>
+        <div id="referencia-preguntas" class="grid col-span-1 rounded-md border border-2 border-black border-dashed bg-gray-100 p-4">
+            <h3>Preguntas</h3>
+        </div>
+    </div>
     </div>
 </body>
 </html>

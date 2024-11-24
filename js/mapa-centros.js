@@ -269,6 +269,7 @@ try {
     zona.centros.forEach((centro) => {
       const filaTabla = document.createElement("tr");
       filaTabla.innerHTML = `
+                <td class="border-b p-2">${centro.id}</td>
                 <td class="border-b p-2">${centro.nombre}</td>
                 <td class="border-b p-2">${centro.direccion}</td>
                 <td class="border-b p-2">${zona.nombre}</td>
