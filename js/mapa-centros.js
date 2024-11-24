@@ -11,7 +11,7 @@ const zonaNorte = {
     {
       id: 2,
       nombre: "Centro Tigre",
-      coordenadas: [-34.426, -58.579],
+      coordenadas: [-34.426943964914486, -58.57035664087726],
       direccion: "Av. Italia 750, Tigre",
     },
     {

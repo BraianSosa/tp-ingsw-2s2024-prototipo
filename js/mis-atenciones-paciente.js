@@ -1,8 +1,8 @@
 const centroAtencion = {
-  idCentro: 1,
+  idCentro: 2,
   coordenadas: {
-    latitud: -34.426943964914486,
-    longitud: -58.57035664087726
+    latitud: -34.42691725848463,
+    longitud: -58.57036776948134
   },
   direccion: "Av. Italia 750, Tigre, Buenos Aires, Argentina",
   nombreCentro: "Centro Tigre",
