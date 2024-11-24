@@ -5,6 +5,9 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Sistema de encuestas</title>
         <script src="https://cdn.tailwindcss.com"></script>
+        <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css" />
+        <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"></script>
+        <script src="js/mis-centros-coordinador.js" defer></script>
     </head>
     <body>
         <!-- Navbar -->
@@ -30,34 +33,11 @@
         </div>
 
         <!-- Resultados de encuestas -->
-        <div class="grid justify-center">
+        <div>
             <div class="p-4 flex justify-center">
-                <h1 class="text-3xl">Mis centros</h1>
+                <h1 class="text-3xl">Mis centros asignados</h1>
             </div>
-            <p>Usted está asignado a <strong>Zona Sur</strong> </p>
-            <div class="p-4"></div>
-            <table class="border rounded-md">
-                <thead class="bg-cyan-700 text-white text-center">
-                    <tr>
-                        <th>Centro</th>
-                        <th>Ubicación</th>
-                    </tr>
-                </thead>
-                <tbody >
-                    <tr>
-                        <td>Centro Lanús</td>
-                        <td>Calle Falsa 123</td>
-                    </tr>
-                    <tr>
-                        <td>Centro Quilmes</td>
-                        <td>Calle Falsa 123</td>
-                    </tr>
-                    <tr>
-                        <td>Centro Avellaneda</td>
-                        <td>Calle Falsa 123</td>
-                    </tr>
-                </tbody>
-            </table>
+            <div id="map" class="mt-4" style="height: 500px;"></div>
         </div>
     </body>
 </html>
