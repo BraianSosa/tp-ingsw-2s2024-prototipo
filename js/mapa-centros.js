@@ -6,19 +6,19 @@ const zonaNorte = {
         id: 1,
         nombre: "Centro San Fernando",
         coordenadas: [-34.455, -58.548],
-        direccion: "Calle Libertador 1020",
+        direccion: "Calle Libertador 1020, San Fernando",
       },
       {
         id: 2,
         nombre: "Centro Tigre",
         coordenadas: [-34.426, -58.579],
-        direccion: "Av. Italia 750",
+        direccion: "Av. Italia 750, Tigre",
       },
       {
         id: 3,
         nombre: "Centro Pilar",
         coordenadas: [-34.458, -58.914],
-        direccion: "Ruta 8 Km 52",
+        direccion: "Ruta 8 Km 52, Pilar",
       },
     ],
     poligono: {
@@ -69,19 +69,19 @@ const zonaNorte = {
         id: 4,
         nombre: "Centro Lanús",
         coordenadas: [-34.705, -58.278],
-        direccion: "Av. Hipólito Yrigoyen 2900",
+        direccion: "Av. Hipólito Yrigoyen 2900, Lanus",
       },
       {
         id: 5,
         nombre: "Centro Quilmes",
         coordenadas: [-34.724, -58.252],
-        direccion: "Calle Mitre 230",
+        direccion: "Calle Mitre 230, Quilmes",
       },
       {
         id: 6,
         nombre: "Centro Avellaneda",
         coordenadas: [-34.663, -58.365],
-        direccion: "Av. Belgrano 1800",
+        direccion: "Av. Belgrano 1800, Avellaneda",
       },
     ],
     poligono: {
@@ -126,19 +126,19 @@ const zonaNorte = {
         id: 7,
         nombre: "Centro Morón",
         coordenadas: [-34.654, -58.619],
-        direccion: "Calle Brown 450",
+        direccion: "Calle Brown 450, Morón",
       },
       {
         id: 8,
         nombre: "Centro San Justo",
         coordenadas: [-34.681, -58.562],
-        direccion: "Calle Almafuerte 820",
+        direccion: "Calle Almafuerte 820, San Justo",
       },
       {
         id: 9,
         nombre: "Centro Merlo",
         coordenadas: [-34.668, -58.729],
-        direccion: "Av. Real 1500",
+        direccion: "Av. Real 1500, Merlo",
       },
     ],
     poligono: {
@@ -188,19 +188,19 @@ const zonaNorte = {
         id: 10,
         nombre: "Centro Palermo",
         coordenadas: [-34.583, -58.421],
-        direccion: "Av. Santa Fe 3400",
+        direccion: "Av. Santa Fe 3400, CABA",
       },
       {
         id: 11,
         nombre: "Centro Recoleta",
         coordenadas: [-34.588, -58.396],
-        direccion: "Calle Junín 120",
+        direccion: "Calle Junín 120, CABA",
       },
       {
         id: 12,
         nombre: "Centro Belgrano",
         coordenadas: [-34.563, -58.446],
-        direccion: "Av. Cabildo 1200",
+        direccion: "Av. Cabildo 1200, CABA",
       },
     ],
     poligono: {
@@ -282,7 +282,7 @@ zonas.forEach((zona) => {
       // Agregar evento al botón "Ver" para centrar y mostrar el marcador
       filaTabla.querySelector("button").addEventListener("click", () => {
         map.setView(centro.coordenadas, 14); // Centrar mapa en el marcador
-        markers[centro.name].openPopup(); // Abrir el popup del marcador
+        markers[centro.nombre].openPopup(); // Abrir el popup del marcador
       });
   
       // Agregar fila a la tabla

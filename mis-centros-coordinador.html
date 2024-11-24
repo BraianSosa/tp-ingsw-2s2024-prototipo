@@ -8,6 +8,7 @@
         <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css" />
         <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"></script>
         <script src="js/mis-centros-coordinador.js" defer></script>
+        <link rel="stylesheet" href="css/mis-centros-coordinador.css" />
     </head>
     <body>
         <!-- Navbar -->
@@ -37,7 +38,30 @@
             <div class="p-4 flex justify-center">
                 <h1 class="text-3xl">Mis centros asignados</h1>
             </div>
-            <div id="map" class="mt-4" style="height: 500px;"></div>
+
+            <h2 id="zona-asignada" class="text-3xl mb-2">Tu zona asignada es: </h2>
+            <div class="grid grid-cols-2 gap-4">
+                <!-- Mapa -->
+                <div id="map" class="flex-1 shadow-lg"></div>
+    
+                <!-- Tabla de centros -->
+                <div id="div-tabla-centros" class="sidebar w-full bg-gray-100 shadow-lg">
+                    <table id="tabla-centros" class="w-full text-left border-collapse">
+                        <thead class="sticky top-0 bg-cyan-700 text-white">
+                            <tr>
+                                <th class="border-b p-2">ID</th>
+                                <th class="border-b p-2">Nombre</th>
+                                <th class="border-b p-2">Dirección</th>
+                                <th class="border-b p-2">Zona</th>
+                                <th class="border-b p-2"></th>
+                            </tr>
+                        </thead>
+                        <tbody id="centros-table-body">
+                            <!-- Filas generadas automaticamente por Objeto de centros pro zona -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
         </div>
     </body>
 </html>
