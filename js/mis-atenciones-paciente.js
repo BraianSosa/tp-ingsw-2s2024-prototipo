@@ -62,9 +62,32 @@ function mostrarCentroAtencion() {
       map.invalidateSize();
     }, 100);
 
+    //Prueba de error
+    //throw new Error("Mapa no disponible");
   } catch (e) {
     // Mapa no disponbile
-    mapaCentroDiv.innerHTML = "<p>El sistema de mapas no está disponible en este momento.</p>";
+    datosCentroP.innerHTML = "<p>El sistema de mapas no está disponible en este momento.</p>";
+    datosCentroP.className = "text-red-500"
+    mapaCentroDiv.innerHTML = `
+        <strong> Datos de la atención brindada </strong> <br>
+        <table class="border">
+          <thead class="bg-cyan-700 text-white">
+              <th>Centro</th>
+              <th>Direccion</th>
+              <th>Zona</th>
+              <th>Fecha Hora Atencion</th>
+          </thead>
+          <tbody class="bg-white">
+              <tr>
+                <td class="px-2 py-x">${centroAtencion.idCentro} - ${centroAtencion.nombreCentro}</td>
+                <td class="px-2 py-x">${centroAtencion.direccion}</td>
+                <td class="px-2 py-x">${centroAtencion.zona.nombre}</td>
+                <td class="px-2 py-x">${atencionPaciente.fechaAtencion}</td>
+              </tr>
+          </tbody>
+    
+    `;
+    mapaCentroDiv.className = "bg-white";
   }
 }
 

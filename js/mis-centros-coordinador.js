@@ -127,7 +127,7 @@ try {
   }, 100);
 
   //Prueba de error
-  //throw new Error("Error de prueba");
+  // throw new Error("Error de Mapas");
 } catch (error) {
   // Mostrar datos en una tabla si ocurre un error
   console.error("Error al generar el mapa: ", error);
@@ -142,13 +142,13 @@ try {
   mapaDiv.innerHTML = `
         <h2 class="text-xl text-red-600 mb-2">Error al cargar el mapa. Mostrando datos en una tabla:</h2>
         <table class="table-auto w-full bg-white border-collapse border border-gray-300">
-            <thead class="bg-gray-200">
+            <thead class="bg-cyan-700 text-white">
                 <tr>
-                    <th class="border border-gray-300 px-4 py-2">ID</th>
-                    <th class="border border-gray-300 px-4 py-2">Nombre</th>
-                    <th class="border border-gray-300 px-4 py-2">Dirección</th>
-                    <th class="border border-gray-300 px-4 py-2">Coordenadas</th>
-                    <th class="border border-gray-300 px-4 py-2">Zona</th>
+                    <th class="px-4 py-2">ID</th>
+                    <th class="px-4 py-2">Nombre</th>
+                    <th class="px-4 py-2">Dirección</th>
+                    <th class="px-4 py-2">Coordenadas</th>
+                    <th class="px-4 py-2">Zona</th>
                 </tr>
             </thead>
             <tbody>
@@ -156,11 +156,11 @@ try {
                   .map(
                     (centro) => `
                     <tr>
-                        <td class="border border-gray-300 px-4 py-2">${centro.id}</td>
-                        <td class="border border-gray-300 px-4 py-2">${centro.nombre}</td>
-                        <td class="border border-gray-300 px-4 py-2">${centro.direccion}</td>
-                        <td class="border border-gray-300 px-4 py-2">${centro.coordenadas[0]+", "+centro.coordenadas[1]}</td>
-                        <td class="border border-gray-300 px-4 py-2">${zonaCoordinador.nombre}</td>
+                        <td class="border px-4 py-2">${centro.id}</td>
+                        <td class="border px-4 py-2">${centro.nombre}</td>
+                        <td class="border px-4 py-2">${centro.direccion}</td>
+                        <td class="border px-4 py-2">${centro.coordenadas[0]+", "+centro.coordenadas[1]}</td>
+                        <td class="border px-4 py-2">${zonaCoordinador.nombre}</td>
                     </tr>
                 `
                   )
