@@ -5,20 +5,20 @@ const zonaCoordinador = {
     {
       id: 1,
       nombre: "Centro San Fernando",
-      coordenadas: [-34.455, -58.548],
-      direccion: "Calle Libertador 1020, San Fernando",
+      coordenadas: [-34.43905066714531, -58.5556164591277],
+      direccion: "Av. del Libertador 1020, B1646DBX San Fernando, Provincia de Buenos Aires",
     },
     {
       id: 2,
       nombre: "Centro Tigre",
-      coordenadas: [-34.426, -58.579],
-      direccion: "Av. Italia 750, Tigre",
+      coordenadas: [-34.42676725773308, -58.57032684907309],
+      direccion: "Av. Italia 750, B1648EEU Tigre, Provincia de Buenos Aires",
     },
     {
       id: 3,
       nombre: "Centro Pilar",
-      coordenadas: [-34.458, -58.914],
-      direccion: "Ruta 8 Km 52, Pilar",
+      coordenadas: [-34.46410619763756, -58.91021580643578],
+      direccion: "Av. Tomás Márquez 1125, Pilar, B1629 Buenos Aires, Provincia de Buenos Aires",
     },
   ],
   poligono: {
